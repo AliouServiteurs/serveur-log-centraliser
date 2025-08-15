@@ -107,17 +107,6 @@ java -cp logserver.jar com.logserver.client.LogClient localhost 8080 MonApp
 java -cp logserver.jar com.logserver.client.LogClient localhost 8080 TestApp 1000 10
 ```
 
-```
-Couverture des Tests:
-- Modèles de données (LogEntry, LogLevel)
-- Parser de messages avec validation
-- Buffer circulaire et back-pressure
-- Stockage fichier avec rotation
-- Intégration serveur-client
-- Tests de charge multi-clients
-- Thread-safety et accès concurrent
-- Gestion d’erreurs et cas limites
-
 ## 📝 Format des Messages
 
 ### Format Complet
@@ -147,7 +136,7 @@ WARN Memory usage high
 
 ### Logs de Rotation
 ```
-logs/
+file/
 ├── WebApp_2024-01-15.log
 ├── DatabaseApp_2024-01-15.log
 └── ApiGateway_2024-01-15.log
@@ -163,6 +152,17 @@ mvn test
 java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest estServerClientIntegration
 # Test de charge
 java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest testMultipleClientsLoad
+```
+```
+Couverture des Tests:
+- Modèles de données (LogEntry, LogLevel)
+- Parser de messages avec validation
+- Buffer circulaire et back-pressure
+- Stockage fichier avec rotation
+- Intégration serveur-client
+- Tests de charge multi-clients
+- Thread-safety et accès concurrent
+- Gestion d’erreurs et cas limites
 ```
 
 ### Couverture des Tests
