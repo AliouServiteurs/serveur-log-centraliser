@@ -76,14 +76,16 @@ mvn package
 ### Démarrage
 ```bash
 # Démarrage simple
+java -cp target/classes com.univ.logserver.LogServerApplication
 ```
 Le JAR généré: target/server_centralise-1.0-SNAPSHOT.jar
-Démarrage:
 ```
+Démarrage:
 mvn clean compile
 mvn package
 java -jar target/server_centralise-1.0-SNAPSHOT.jar
 java -Xmx1g -Xms512m -jar target/server_centralise-1.0-SNAPSHOT.jar
+```
 
 ### Interface Console
 ```
