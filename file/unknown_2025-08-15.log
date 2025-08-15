@@ -1,0 +1,1 @@
+[2025-08-15 03:52:22.033] INFO [unknown] unknown - APP:TestApp {severity=low, server_time=1755229942033, processor_thread=LogServer-Processor-0.6704517043981446, processed_at=1755229942035, client_ip=127.0.0.1, category=general, client_id=127.0.0.1:55106-1755229942022}
