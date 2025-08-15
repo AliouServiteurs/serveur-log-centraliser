@@ -66,23 +66,24 @@ threads.processor=4           # Nombre de threads processeurs
 ### Compilation
 ```bash
 # Compiler toutes les classes
-find src/main/java -name "*.java" > sources.txt
-javac -d build/classes @sources.txt
+mvn clean compile
 
 # Créer le JAR
-jar cfm logserver.jar MANIFEST.MF -C build/classes .
+mvn package
+
 ```
 
 ### Démarrage
 ```bash
 # Démarrage simple
-java -jar logserver.jar
-
-# Avec paramètres JVM optimisés
-java -Xmx1g -Xms512m -jar logserver.jar
 ```
-
-## 💻 Utilisation
+Le JAR généré: target/server_centralise-1.0-SNAPSHOT.jar
+Démarrage:
+```
+mvn clean compile
+mvn package
+java -jar target/server_centralise-1.0-SNAPSHOT.jar
+java -Xmx1g -Xms512m -jar target/server_centralise-1.0-SNAPSHOT.jar
 
 ### Interface Console
 ```
@@ -103,6 +104,19 @@ java -cp logserver.jar com.logserver.client.LogClient localhost 8080 MonApp
 # Test de charge
 java -cp logserver.jar com.logserver.client.LogClient localhost 8080 TestApp 1000 10
 ```
+mvn test
+java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest estServerClientIntegration
+java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest testMultipleClientsLoad
+```
+Couverture des Tests:
+- Modèles de données (LogEntry, LogLevel)
+- Parser de messages avec validation
+- Buffer circulaire et back-pressure
+- Stockage fichier avec rotation
+- Intégration serveur-client
+- Tests de charge multi-clients
+- Thread-safety et accès concurrent
+- Gestion d’erreurs et cas limites
 
 ## 📝 Format des Messages
 
@@ -168,13 +182,13 @@ java -cp logserver.jar com.logserver.LogServerTest testMultipleClientsLoad
 ### Gestion des Logs
 ```bash
 # Nettoyage automatique des anciens logs (script externe)
-find ./logs -name "*.log" -mtime +30 -delete
+find ./file -name "*.log" -mtime +30 -delete
 
 # Compression des logs
-gzip logs/*.log
+gzip file/*.log
 
 # Surveillance espace disque
-df -h ./logs/
+df -h ./file/
 ```
 
 ### Optimisation Performance
@@ -208,7 +222,7 @@ Vérifier: LogServer> memory
 **Fichiers de logs volumineux**
 ```
 Solution: Implémenter rotation par taille + compression
-Vérifier: ls -lh ./logs/
+Vérifier: ls -lh ./file/
 ```
 
 ## 📊 Spécifications Techniques
