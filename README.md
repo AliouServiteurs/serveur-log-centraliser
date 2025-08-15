@@ -45,7 +45,7 @@ Serveur de logs centralisé haute performance développé en Java pour collecter
                        └─────────────────┘    └─────────────────┘
 ```
 
-## ⚙️ Configuration
+### ⚙️ Configuration
 
 ### config.properties
 ```properties
