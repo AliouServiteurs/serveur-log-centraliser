@@ -106,9 +106,7 @@ java -cp logserver.jar com.logserver.client.LogClient localhost 8080 MonApp
 # Test de charge
 java -cp logserver.jar com.logserver.client.LogClient localhost 8080 TestApp 1000 10
 ```
-mvn test
-java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest estServerClientIntegration
-java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest testMultipleClientsLoad
+
 ```
 Couverture des Tests:
 - Modèles de données (LogEntry, LogLevel)
@@ -160,13 +158,11 @@ logs/
 ### Exécution des Tests
 ```bash
 # Tests unitaires complets
-java -cp ".:junit.jar" org.junit.runner.JUnitCore com.logserver.LogServerTest
-
+mvn test
 # Test d'intégration serveur-client
-java -cp logserver.jar com.logserver.LogServerTest testServerClientIntegration
-
+java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest estServerClientIntegration
 # Test de charge
-java -cp logserver.jar com.logserver.LogServerTest testMultipleClientsLoad
+java -cp target/server_centralise-1.0-SNAPSHOT.jar com.univ.logserver.LogServerTest testMultipleClientsLoad
 ```
 
 ### Couverture des Tests
